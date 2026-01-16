@@ -2,7 +2,7 @@ const YourCart = ({ cart, totalItems, totalPrice, removeFromCart, onConfirm }) =
   const cartItems = Object.values(cart);
 
   return (
-    <div className="bg-white w-[336px] rounded-lg mt-2 pb-6 md:sticky md:top-1">
+    <div className="bg-white w-[336px] rounded-lg mt-2 pb-6 md:absolute md:top-10  md:w-[286px]">
       <h2 className="text-xl font-bold text-red-700 px-4 py-5">
         Your Cart ({totalItems})
       </h2>
@@ -19,7 +19,7 @@ const YourCart = ({ cart, totalItems, totalPrice, removeFromCart, onConfirm }) =
           </p>
         </div>
       ) : (
-        <div className="px-4 space-y-4">
+        <div className="px-4 space-y-4 w-[280px]">
           {cartItems.map(({ product, quantity }) => (
             <div
               key={product.id}
@@ -35,7 +35,7 @@ const YourCart = ({ cart, totalItems, totalPrice, removeFromCart, onConfirm }) =
                       </span>
                     </div>
                     <div onClick={()=>{removeFromCart(product.id)}}>
-                       <img src="./assets/images/icon-remove-item.svg" alt="" className="w-4 border-gray-400 border rounded-full p-0.5 cursor-pointer" /> 
+                       <img src="./assets/images/icon-remove-item.svg" alt="" className="w-4 border-gray-400 border rounded-full p-0.5 cursor-pointer hover:border-gray-600 hover:border-2" /> 
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@ const YourCart = ({ cart, totalItems, totalPrice, removeFromCart, onConfirm }) =
             <p>This is a <span className=" font-semibold text-rose-950 ">carbon-neutral</span> delivery</p>
           </div>
           <div className="flex justify-center align-middle">
-            <button className=" text-white bg-orange-700 w-[270px] p-3 font-semibold rounded-full " onClick={onConfirm}>Confirm Order</button>
+            <button className=" text-white bg-orange-600 w-[270px] p-3 font-semibold rounded-full hover:bg-orange-800 " onClick={onConfirm}>Confirm Order</button>
           </div>
           
         </div>

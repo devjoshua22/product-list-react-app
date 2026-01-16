@@ -1,6 +1,6 @@
 import CartButton from "./CartButton";
 import UseHandleData from "./useHandleData";
-import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Product = ({cart: cartItems , addToCart, increment, decrement }) => {
 
@@ -8,24 +8,59 @@ const Product = ({cart: cartItems , addToCart, increment, decrement }) => {
         // the fetch to the handleData hook 
     const { products, isLoading, error } = UseHandleData();
 
-    if (isLoading) return <p>Loading...</p>;
-    if (error) return <p>Error loading products</p>;
+   if (isLoading)
+  return (
+    <motion.p
+      animate={{ opacity: [0.3, 1, 0.3] }}
+      transition={{ repeat: Infinity, duration: 1.2 }}
+    >
+      Loading desserts...
+    </motion.p>
+  );
+
+if (error)
+  return (
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="text-red-600"
+    >
+      Failed to load products
+    </motion.p>
+  );
 
 
 
     return (
         
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap md:gap-1 md:px-1 md:max-w-[950px] justify-center md:justify-start">
             {products.map((product)=>{ 
              const isInCart = !!cartItems[product.id];
              const quantity = cartItems[product.id]?.quantity ?? 0;
             return(
-                <section className={`w-[350px] m-1 ` }  key={product.id}>
+                <section className={`w-[350px] md:w-[265px]  m-1 ` }  key={product.id}>
             {/* the food image */}
-            <img src = {product?.image.mobile} alt="" className={`rounded-md ${isInCart ? 'border-orange-600 border-2' : 'border-transparent' } ` }   />
+              {/* Responsive image without JS logic */}
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcSet={product.image.desktop}
+              />
+              <source
+                media="(min-width: 768px)"
+                srcSet={product.image.tablet}
+              />
+              <img
+                src={product.image.mobile}
+                alt={product.name}
+                className={`rounded-md w-full md:w-[280px] md:h-[220px] ${
+                  isInCart ? "border-2 border-orange-600" : ""
+                }`}/>
+            </picture>
+           
 
             {/* the  "add to cart button" */}
-            <div className=" absolute mx-24 -my-1">
+            <div className=" absolute mx-24 md:mx-[6%] lg:mx-[4.5%] -my-1">
                 <CartButton
                 isInCart={isInCart}
                 quantity={quantity}
@@ -55,5 +90,5 @@ const Product = ({cart: cartItems , addToCart, increment, decrement }) => {
     
       );
 }
- 
+  
 export default Product;

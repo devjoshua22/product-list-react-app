@@ -1,91 +1,30 @@
-import { useState, useEffect } from 'react'
 import Product from './Product'
 import YourCart from './YourCart'
 import ConfirmModal from './ConfirimationModal';
+import useCart from './hooks/useCart';
 
 
 function App() {
-  //const [count, setCount] = useState(0)
-  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
-
-
- const [cart, setCart] = useState(() => {
-  const saved = localStorage.getItem("cart");
-  return saved ? JSON.parse(saved) : {};
-});
-
-
-useEffect(() => {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}, [cart]);
-
-
-  const addToCart = (product) => {
-  setCart(prev => ({
-    ...prev,
-    [product.id]: {
-      product,
-      quantity: 1
-    }
-    }));
-  };
-
-  const removeFromCart = (id) => {
-  setCart(prev => {
-    const copy = { ...prev };
-    delete copy[id];
-    return copy;
-  });
-};
-
-  const increment = (id) => {
-  setCart(prev => ({
-    ...prev,
-    [id]: {
-      ...prev[id],
-      quantity: prev[id].quantity + 1
-    }
-  }));
-};
-
-
-  const decrement = (id) => {
-  setCart(prev => {
-    const qty = prev[id].quantity - 1;
-
-    if (qty === 0) {
-      const copy = { ...prev };
-      delete copy[id];
-      return copy;
-    }
-    return {
-      ...prev,
-      [id]: {
-        ...prev[id],
-        quantity: qty
-      }
-      };
-    });
-  };
-
-  const totalItems = Object.values(cart)
-  .reduce((sum, item) => sum + item.quantity, 0);
-
-  const totalPrice = Object.values(cart)
-  .reduce((sum, item) => 
-    sum + item.product.price * item.quantity,
-  0);
-
-
-
-
+  
+ const {
+    cart,
+    addToCart,
+    increment,
+    decrement,
+    removeFromCart,
+    totalItems,
+    totalPrice,
+    isConfirmOpen,
+    setIsConfirmOpen,
+    setCart
+    } = useCart()
 
   return (
     <>
-    <div className=  ' w-screen p-4 h-full bg-pink-50 '>
+    <div className=  ' w-[400px] md:w-[1350px]  p-4 h-full bg-pink-50 '>
       <h2 className=' text-4xl font-bold text-rose-950  px-1'>Desserts</h2>
-      <div className=' flex flex-wrap justify-center items-center lg:flex-nowrap'>
-        <main className='flex justify-center align-middle mt-5  '>
+      <div className=' flex flex-wrap justify-center content-center items-center align-middle md:flex-nowrap md:justify-start md:align-baseline md:content-normal md:items-start'>
+        <main className='flex justify-center align-middle mt-5 md:justify-start   '>
       <Product
       cart={cart}
       addToCart={addToCart}
@@ -93,7 +32,7 @@ useEffect(() => {
       decrement={decrement}
     />
       </main>
-      <section id="your-cart" >
+      <section id="your-cart" className='-ml-[4%]' >
         <YourCart
         cart={cart}
         totalItems={totalItems}
@@ -108,7 +47,7 @@ useEffect(() => {
   <ConfirmModal
     cart={cart}
     totalPrice={totalPrice}
-    onClose={() => setIsConfirmOpen(false)}
+    //onClose={() => setIsConfirmOpen(false)}
     onConfirm={() => {
       setCart({});
       setIsConfirmOpen(false);

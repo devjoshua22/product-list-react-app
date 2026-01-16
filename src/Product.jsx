@@ -14,7 +14,9 @@ const Product = ({cart: cartItems , addToCart, increment, decrement }) => {
       animate={{ opacity: [0.3, 1, 0.3] }}
       transition={{ repeat: Infinity, duration: 1.2 }}
     >
-      Loading desserts...
+      <div className=" ml-4">
+    Loading desserts...
+    </div>
     </motion.p>
   );
 

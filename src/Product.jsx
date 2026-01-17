@@ -1,5 +1,5 @@
 import CartButton from "./CartButton";
-import UseHandleData from "./useHandleData";
+import UseHandleData from "./UseHandleData";
 import { motion } from "framer-motion";
 
 const Product = ({cart: cartItems , addToCart, increment, decrement }) => {

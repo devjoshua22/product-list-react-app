@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 const fetchProducts = async () => {
-  const res = await fetch("https://comment-data.onrender.com/products");
+  const res = await fetch("https://product-data-dtos.onrender.com/products");
   if (!res.ok) {
     throw new Error("Failed to fetch products");
   }

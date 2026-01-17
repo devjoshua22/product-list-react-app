@@ -114,4 +114,5 @@
 !.gitignore
 !dist/
 !dist/**
+!.nojekyll
 // ...existing code...

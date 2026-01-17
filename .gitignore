@@ -1,110 +1,117 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# # Logs
+# logs
+# *.log
+# npm-debug.log*
+# yarn-debug.log*
+# yarn-error.log*
+# pnpm-debug.log*
+# lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# node_modules
+# dist
+# dist-ssr
+# *.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# # Editor directories and files
+# .vscode/*
+# !.vscode/extensions.json
+# .idea
+# .DS_Store
+# *.suo
+# *.ntvs*
+# *.njsproj
+# *.sln
+# *.sw?
 
-# Avoid accidental upload of the Sketch and Figma design files
-#####################################################
-## Please do not remove lines 5 and 6 - thanks! 🙂 ##
-#####################################################
-*.sketch
-*.fig
+# # Avoid accidental upload of the Sketch and Figma design files
+# #####################################################
+# ## Please do not remove lines 5 and 6 - thanks! 🙂 ##
+# #####################################################
+# *.sketch
+# *.fig
 
-# Avoid accidental XD upload if you convert the design file
-###############################################
-## Please do not remove line 12 - thanks! 🙂 ##
-###############################################
-*.xd
+# # Avoid accidental XD upload if you convert the design file
+# ###############################################
+# ## Please do not remove line 12 - thanks! 🙂 ##
+# ###############################################
+# *.xd
 
-# Avoid your project being littered with annoying .DS_Store files!
-.DS_Store
-.prettierignore
+# # Avoid your project being littered with annoying .DS_Store files!
+# .DS_Store
+# .prettierignore
 
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# # dependencies
+# /node_modules
+# /.pnp
+# .pnp.js
 
-# testing
-/coverage
+# # testing
+# /coverage
 
-# production
-/build
+# # production
+# /build
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# # misc
+# .DS_Store
+# .env.local
+# .env.development.local
+# .env.test.local
+# .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# npm-debug.log*
+# yarn-debug.log*
+# yarn-error.log*
 
-# Design files (please do not remove 🙂)
-*.sketch
-*.fig
-*.xd
+# # Design files (please do not remove 🙂)
+# *.sketch
+# *.fig
+# *.xd
 
-# Dependencies
-/node_modules
-/.pnp
-.pnp.js
-yarn.debug.log*
-yarn.error.log*
-npm-debug.log*
+# # Dependencies
+# /node_modules
+# /.pnp
+# .pnp.js
+# yarn.debug.log*
+# yarn.error.log*
+# npm-debug.log*
 
-# Environment and secrets
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# # Environment and secrets
+# .env
+# .env.local
+# .env.development.local
+# .env.test.local
+# .env.production.local
 
-# Testing
-/coverage
+# # Testing
+# /coverage
 
-# Production
-/build
-/dist
-/.next
-/out
+# # Production
+# /build
 
-# IDEs and editors
-/.idea
-/.vscode
-*.swp
-*.swo
+# /.next
+# /out
 
-# Misc
-*.log
-*.pem
-.DS_Store
-Thumbs.db
+# # IDEs and editors
+# /.idea
+# /.vscode
+# *.swp
+# *.swo
 
-#data 
-/data
-/design
+# # Misc
+# *.log
+# *.pem
+# .DS_Store
+# Thumbs.db
+
+# #data 
+# /data
+# /design
+
+// ...existing code...
+*
+!.gitignore
+!dist/
+!dist/**
+// ...existing code...
